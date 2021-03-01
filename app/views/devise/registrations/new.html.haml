@@ -1,0 +1,26 @@
+= image_tag 'top.png', class: 'top-img'
+.container 
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :account, class: 'label-title'
+      %br/
+      = f.text_field :account, autofocus: true, class: 'label-area'
+    .field
+      = f.label :email, class: 'label-title'
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'label-area'
+    .field
+      = f.label :password, class: 'label-title'
+      - if @minimum_password_length
+        -# %em
+        -#   (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.password_field :password, autocomplete: "new-password", class: 'label-area'
+    -# .field
+    -#   = f.label :password_confirmation
+    -#   %br/
+    -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions
+      = f.submit "CREATE ACCOUNT", class: 'btn-primary'
+-# = render "devise/shared/links"
