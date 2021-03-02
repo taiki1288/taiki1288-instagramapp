@@ -1,0 +1,19 @@
+= image_tag 'top.png', class: 'top-img'
+.container 
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email, class: 'label-title'
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'label-area'
+    .field
+      = f.label :password, class: 'label-title'
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: 'label-area'
+    - if devise_mapping.rememberable?
+      -# .field
+      -#   = f.check_box :remember_me
+      -#   = f.label :remember_me
+    = link_to 'Forgot password?', new_user_password_path, class: 'pass-induction'
+    .actions
+      = f.submit "LOGIN", class: 'btn-primary'
+-# = render "devise/shared/links"

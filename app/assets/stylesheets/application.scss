@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'form';
+@import 'button';
+
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 1em;
+    color: $text-base-color;
+    font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    margin: 0 16px;
+}
+
+a {
+    // color: $primary-color;
+    text-decoration: none;
+}  
