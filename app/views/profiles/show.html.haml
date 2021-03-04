@@ -1,1 +1,38 @@
-プロフィールページになります！
+.container 
+  .profilePage
+    = link_to destroy_user_session_path, data: { method: 'delete' }, target: "_blank" do
+      = image_tag 'return.png', class: 'return-btn'
+    .profilePage_user_account
+      %p= current_user.account
+    .profilePage_user_image 
+      = link_to edit_profile_path, target: '_blank' do
+        = image_tag current_user.avatar_image, class: 'avatar-image'
+
+    .profilePage_user_have 
+      .profilePage_user_have_item 
+        %p.count 44
+        %p.title posts
+      .profilePage_user_have_item 
+        %p.count 110
+        %p.title Followers 
+      .profilePage_user_have_item 
+        %p.count 44
+        %p.title Folllowing
+
+  -# .postedImage_have 
+  -#   .postedImage_have_item 
+  -#     .image-list1
+  -#       = image_tag 'posted-image1.png', class: 'large-img'
+  -#     .image-list2 
+  -#       = image_tag 'posted-image2.png', class: 'small-img'
+  -#       = image_tag 'posted-image3.png', class: 'small-img'
+  -#   .postedImage_have_item 
+  -#     .image-list2 
+  -#       = image_tag 'posted-image4.png', class: 'small-image'        
+  -#       = image_tag 'posted-image5.png', class: 'small-image'
+  -#     .image-list1 
+  -#       = image_tag 'posted-image6.png', class: 'large-img'     
+
+    
+
+
