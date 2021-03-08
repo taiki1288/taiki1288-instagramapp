@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
       @profile = current_user.prepare_profile
       @profile.assign_attributes(profile_params)
       @profile.save!
+      render json: @profile
     end
 
     private
