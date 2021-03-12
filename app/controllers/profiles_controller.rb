@@ -11,8 +11,12 @@ class ProfilesController < ApplicationController
     def update
       @profile = current_user.prepare_profile
       @profile.assign_attributes(profile_params)
-      @profile.save!
-      render json: @profile
+      respond_to do |format|
+        if @profile.save!
+          format.html { redirect_to @profile }
+          format.json { render json: @profile }
+        end
+      end
     end
 
     private
