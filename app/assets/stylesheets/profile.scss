@@ -1,0 +1,131 @@
+
+.profilePage_user {
+
+    &_account {
+        align-items: center;
+        margin-top: -46px;
+
+        p {
+            text-align: center;
+            height: 24px;
+            font-style: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #333A42;
+            margin-bottom: 35px;
+        }
+    }
+
+    &_image {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 46px;
+
+        .avatar-image {
+            width: 76.88px;
+            height: 76.88px;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    }
+
+    &_have {
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 27px;
+
+        &_item {
+          .count {
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px; 
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #333A42;
+          }
+
+          .title {
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 21px;
+            color: #9E9E9E;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+        }
+    }
+}
+
+#profile-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+  }
+
+  .profilePage_user_image_box {
+    width: 300px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .profilePage_user_image_box_item {
+    width: 100%;
+    height: calc(100% - 60px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #profile-content-close {
+    width: 90%;
+    height: 48px;
+    // margin-top: 130px;
+    background: skyblue;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.9;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+
+  .form-title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #9E9E9E;
+    // margin-bottom: 20px;
+  }
+
+  .form-avatar {
+    margin-top: 20px;
+  }
+

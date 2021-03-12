@@ -1,0 +1,35 @@
+.container 
+  .profilePage
+    = link_to destroy_user_session_path, data: { method: 'delete' }, target: "_blank" do
+      = image_tag 'return.png', class: 'return-btn'
+    .profilePage_user_account
+      %p= current_user.account
+    .profilePage_user_image 
+      = image_tag current_user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
+    #profile-content
+      .profilePage_user_image_box
+        .profilePage_user_image_box_item
+          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form') do |f|
+            %div 
+              = f.label :avatar, 'image', class: 'form-title'
+            %div 
+              = f.file_field :avatar, class: 'form-avatar'
+          
+            =f.submit 'Submit', class: 'modal-btn-primary'
+          %button#profile-content-close Cancel
+
+    .profilePage_user_have 
+      .profilePage_user_have_item 
+        %p.count 44
+        %p.title posts
+      .profilePage_user_have_item 
+        %p.count 110
+        %p.title Followers 
+      .profilePage_user_have_item 
+        %p.count 44
+        %p.title Folllowing
+
+= javascript_pack_tag 'profile'
+    
+
+
