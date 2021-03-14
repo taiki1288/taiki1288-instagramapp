@@ -1,0 +1,20 @@
+.card_container 
+  = form_with model: @timeline, url: timelines_path, method: 'post', local: true do |f|
+    .timeline_new_header
+      = link_to 'Cancel', root_path, class: 'post-cancel'
+      %p.timeline_new_header_name Status
+      .timeline_new_header_postbtn
+        =f.submit 'Post', class: 'post-btn'
+    .timeline_new_card 
+      .timeline_new_card_user 
+        = image_tag current_user.avatar_image, class: 'post-avatar'
+      .timeline_new_card_user_name 
+        %p.user_name= current_user.account
+    .content_field
+      = f.text_field :content, class: 'post-content', placeholder: 'what’s on your mind ?'
+    .timeline_new_image
+      .timeline_new_image_label
+        = f.label :images, '+ Album', class: 'album-btn'
+      .timeline_new_image_form
+        = f.file_field :images, multiple: true, class: 'post-image'
+
