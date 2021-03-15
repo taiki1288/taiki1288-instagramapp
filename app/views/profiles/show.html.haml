@@ -1,6 +1,6 @@
 .container 
   .profilePage
-    = link_to destroy_user_session_path, data: { method: 'delete' }, target: "_blank" do
+    = link_to root_path do
       = image_tag 'return.png', class: 'return-btn'
     .profilePage_user_account
       %p= current_user.account

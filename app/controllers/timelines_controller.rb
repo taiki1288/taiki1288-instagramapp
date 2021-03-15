@@ -2,7 +2,7 @@ class TimelinesController < ApplicationController
     before_action :authenticate_user!, only:[:new, :create, :edit, :destroy]
 
     def index
-        @timelines = Timeline.all.order(id: :desc)
+        @timelines = Timeline.all
     end
 
     def new

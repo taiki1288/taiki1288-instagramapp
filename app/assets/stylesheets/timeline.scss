@@ -62,3 +62,56 @@
         line-height: 24px;
     }
 }
+
+.timeline-container {
+    margin-top: 48px;
+    margin-left: 16px;
+    margin-left: 16px;
+}
+
+.timeline-header {
+}
+
+.timeline-user {
+}
+
+.timeline-post-btn {
+    margin-bottom: 43px;
+}
+
+.timeline-header-list {
+    display: flex;
+    margin-top: 43px;
+}
+
+.timelines-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 8px;
+}
+
+.timeline-user-name {
+
+}
+
+.timelineUser-name {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+}
+
+.timelineTime {
+    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-left: -78px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #9E9E9E;
+}
