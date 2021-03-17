@@ -9,13 +9,28 @@
         = link_to profile_path do
           = image_tag current_user.avatar_image, class: 'timelines-avatar'        
       %p.timelineUser-name= current_user.account
-      %p.timelineTime= time_ago_in_words(timeline.created_at)
+      %p.timelineTime= time_ago_in_words(timeline.created_at) + ' ago '
     .timeline-card 
       .timeline-images
         - if timeline.images.attached?
           - timeline.images.each do |image|
-            = image_tag image
-      .timeline-buttoms 
+            = image_tag image, class: 'timeline-image'
+      .timeline-buttons 
+        .timeline-heart 
+          = image_tag 'heart.png', class: 'like-btn'
+        .timeline-comment 
+          = image_tag 'comment.png', class: 'comment-btn'
+        .timeline-share
+          = link_to  "https://twitter.com/share?url=#{ request.url }", title: 'Twitter', target: '_blank' do
+            = image_tag 'share.png', class: 'share-btn'
+      .timeline-content 
+        %p.content-item= timeline.content
+      .timeline-create-time
+        %p.create-user= current_user.account
+        %p.create-time= timeline.created_at.strftime('%Y/%m/%d %H:%M')
+          
+        
+
         
       
 

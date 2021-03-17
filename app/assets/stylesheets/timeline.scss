@@ -106,7 +106,7 @@
 
 .timelineTime {
     margin-top: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 11px;
     margin-left: -78px;
     font-family: Poppins;
     font-style: normal;
@@ -114,4 +114,68 @@
     font-size: 12px;
     line-height: 18px;
     color: #9E9E9E;
+}
+
+.timeline-card  {
+
+}
+
+.timeline-images {
+    display: flex;
+
+    .timeline-image {
+        width: 30%;
+    }
+}
+
+.timeline-buttons {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 9px;
+
+    .timeline-heart {
+    }
+
+    .timeline-comment {
+        margin-left: 14px;
+    }
+
+    .timeline-share {
+        margin-left: 14px;
+    }
+}
+
+.timeline-content {
+    
+    .content-item {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px; 
+    margin: 0;
+  }
+}
+
+.timeline-create-time {
+    display: flex;
+    margin-top: -5px;
+
+    .create-user {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        margin-right: 5px;
+    }
+
+    .create-time {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        color: #9E9E9E;
+    }
 }
