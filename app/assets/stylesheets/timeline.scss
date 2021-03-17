@@ -77,6 +77,11 @@
 
 .timeline-post-btn {
     margin-bottom: 43px;
+
+    .timeline-new {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 .timeline-header-list {
@@ -134,19 +139,34 @@
     margin-bottom: 9px;
 
     .timeline-heart {
+
+        .like-btn {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     .timeline-comment {
-        margin-left: 14px;
+        margin-left: 15px;
+
+        .comment-btn {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     .timeline-share {
-        margin-left: 14px;
+        margin-left: 15px;
+
+        .share-btn {
+            width: 25px;
+            height: 25px;
+        }
     }
 }
 
 .timeline-content {
-    
+
     .content-item {
     font-family: Poppins;
     font-style: normal;

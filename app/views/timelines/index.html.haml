@@ -1,8 +1,8 @@
 .timeline-container 
   .timeline-header
     .timeline-post-btn
-    = link_to new_timeline_path do
-      = image_tag 'camera.png', class: 'timeline-new'
+      = link_to new_timeline_path do
+        = image_tag 'camera.svg', class: 'timeline-new'
   - @timelines.each do |timeline|
     .timeline-header-list
       .timeline-user 
@@ -17,12 +17,12 @@
             = image_tag image, class: 'timeline-image'
       .timeline-buttons 
         .timeline-heart 
-          = image_tag 'heart.png', class: 'like-btn'
+          = image_tag 'heart.svg', class: 'like-btn'
         .timeline-comment 
-          = image_tag 'comment.png', class: 'comment-btn'
+          = image_tag 'comment.svg', class: 'comment-btn'
         .timeline-share
           = link_to  "https://twitter.com/share?url=#{ request.url }", title: 'Twitter', target: '_blank' do
-            = image_tag 'share.png', class: 'share-btn'
+            = image_tag 'share.svg', class: 'share-btn'
       .timeline-content 
         %p.content-item= timeline.content
       .timeline-create-time
