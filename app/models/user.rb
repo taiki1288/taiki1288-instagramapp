@@ -28,6 +28,10 @@ class User < ApplicationRecord
   has_many :timelines, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  def has_liked?(timeline)
+    likes.exists?(timeline_id: timeline.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end

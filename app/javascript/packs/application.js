@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+const { default: axios } = require("axios");
 var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
@@ -26,3 +27,12 @@ $(function() {
         // autoplaySpeed: 1000,
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dataset = $('#timeline-show').data()
+    const timelineId = dataset.timelineId
+    axios.get(`/timelines/${timelineId}/like`)
+      .then((response) => {
+          console.log(response)
+      })
+})
