@@ -3,6 +3,8 @@
 @import 'button';
 @import 'profile';
 @import 'timeline';
+@import 'slick-theme';
+@import "slick";
 
 body {
     height: 100%;
@@ -20,3 +22,13 @@ a {
     // color: $primary-color;
     text-decoration: none;
 }  
+
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
+
+.slick-prev {
+    left: 10px !important;
+  z-index: 100;
+ }

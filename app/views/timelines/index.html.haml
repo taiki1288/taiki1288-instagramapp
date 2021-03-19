@@ -13,8 +13,9 @@
     .timeline-card 
       .timeline-images
         - if timeline.images.attached?
-          - timeline.images.each do |image|
-            = image_tag image, class: 'timeline-image'
+          .slick
+            - timeline.images.each do |image|
+              = image_tag image, class: 'timeline-image'
       .timeline-buttons 
         .timeline-heart 
           = image_tag 'heart.svg', class: 'like-btn'

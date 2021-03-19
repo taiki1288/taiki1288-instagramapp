@@ -126,10 +126,10 @@
 }
 
 .timeline-images {
-    display: flex;
+    // display: flex;
 
     .timeline-image {
-        width: 30%;
+        width: 100%;
     }
 }
 
@@ -198,4 +198,8 @@
         line-height: 18px;
         color: #9E9E9E;
     }
+}
+
+.slide-image { 
+    width: 100%;
 }
