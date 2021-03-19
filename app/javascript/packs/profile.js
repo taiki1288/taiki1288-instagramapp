@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import axios from 'axios'
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     $(function(){
         $('.avatar-image').on('click', function(){
             $('#profile-content').fadeIn();
