@@ -31,7 +31,6 @@
 }
 
 .pass-induction {
-    // position: absolute;
     float: right;
     height: 17px;
     left: 69.6%;
@@ -41,7 +40,52 @@
     font-weight: normal;
     font-size: 11px;
     line-height: 16px;
-    /* identical to box height */
     text-align: right;
     color: #CCCCCC;
+}
+
+.content_field {
+    
+    .post-content {
+        width: 95%;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #BDBDBD;
+        mix-blend-mode: normal;
+        opacity: 0.9;
+        border: none;
+        border-bottom: 1px solid #9E9E9E;
+        margin-bottom: 24px;
+        outline: none;
+    }
+}
+
+.timeline_new_image {
+
+    &_label {
+        width: 73px;
+        height: 24px;
+        border: 1px solid #E0E0E0;
+        box-sizing: border-box;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .album-btn {
+        cursor: pointer;
+    }
+
+    &_form {
+        display: none;
+        cursor: pointer;
+    }
 }
