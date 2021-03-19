@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :timelines, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def prepare_profile
     profile || build_profile
