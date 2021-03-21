@@ -19,14 +19,10 @@
                 = image_tag image, class: 'timeline-image'
         .timeline-buttons 
           - if user_signed_in?
-            - if current_user.has_liked?(timeline)
-              .timeline-heart 
-                = link_to timeline_like_path(timeline), data: { method: 'delete' } do
-                  = image_tag 'heart.svg', class: 'like-btn'
-            - else
-              .timeline-heart 
-                = link_to timeline_like_path(timeline), data: { method: 'post' } do
-                  = image_tag 'inactive-heart.svg', class: 'like-btn'
+            .timeline-heart.hidden.active-heart{id: timeline.id}
+              = image_tag 'heart.svg', class: 'like-btn'
+            .timeline-heart.hidden.inactive-heart{id: timeline.id}
+              = image_tag 'inactive-heart.svg', class: 'like-btn'
           .timeline-comment 
             = image_tag 'comment.svg', class: 'comment-btn'
           .timeline-share
