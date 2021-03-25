@@ -18,7 +18,7 @@ class LikesController < ApplicationController
         timeline = Timeline.find(params[:timeline_id])
         like = timeline.likes.find_by!(user_id: current_user.id)
         like.destroy!
-        
+
         render json: { status: 'ok' }
     end
 end

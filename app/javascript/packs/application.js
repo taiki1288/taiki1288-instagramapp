@@ -36,15 +36,23 @@ $(function() {
 
 const handleHeartDisplay = (hasLiked) => {
     if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
+      $('.active-heart').removeClass('hidden')
     } else {
-        $('.inactive-heart').removeClass('hidden')
+      $('.inactive-heart').removeClass('hidden')
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const dataset = $('#timeline-show').data()
     const timelineId = dataset.timelineId
+
+    $('#timeline-show').each(function(){
+        $('[id]').each( function(){
+            console.log($(this).html());
+        });
+    });
+    debugger
+
     axios.get(`/timelines/${timelineId}/like`)
       .then((response) => {
         const hasLiked = response.data.hasLiked
@@ -72,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const timelineId = $(e.currentTarget).attr('id');
         console.log(timelineId);
-        
          axios.delete(`/timelines/${timelineId}/like`)
           .then((response) => {
             if (response.data.status === 'ok') {
