@@ -43,21 +43,34 @@ const handleHeartDisplay = (hasLiked) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const dataset = $('#timeline-show').data()
-    const timelineId = dataset.timelineId
+    // const dataset = $('#timeline-show').data()
+    // const timelineId = dataset.timelineId
 
-    $('#timeline-show').each(function(){
-        $('[id]').each( function(){
-            console.log($(this).html());
-        });
+    // ここで全ての記事を取得している
+    $('.timeline-card').each(function(){
+      console.log($('.timeline-card'));
+        // ここで取れるのはなぜかid8だけ
+        // ここから全てのidを取れるようしたいがわからない
+        // const dataset = $('#timeline-show').data()
+        // const timelineId = dataset.timelineId
+        // attrを使ってtimeline-cardのdata-timeline-idを取得してみる
+            const timelineId = $('#timeline-show').attr('data-timeline-id')
+            console.log(timelineId);
+      
+            axios.get(`/timelines/${timelineId}/like`)
+            .then((response) => {
+              const hasLiked = response.data.hasLiked
+              handleHeartDisplay(hasLiked)
+            })
+            // debugger
     });
-    debugger
+   
 
-    axios.get(`/timelines/${timelineId}/like`)
-      .then((response) => {
-        const hasLiked = response.data.hasLiked
-        handleHeartDisplay(hasLiked)
-      })
+    // axios.get(`/timelines/${timelineId}/like`)
+    //   .then((response) => {
+    //     const hasLiked = response.data.hasLiked
+    //     handleHeartDisplay(hasLiked)
+    //   })
 
       $('.inactive-heart').on('click', (e) => {
         e.preventDefault();
