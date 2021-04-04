@@ -29,48 +29,37 @@ axios.defaults.headers.common[ 'X-CSRF-Token' ] = csrfToken()
 $(function() {
     $('.slick').slick({
         dots: true,
-        // autoplay: true,
-        // autoplaySpeed: 1000,
     });
 });
 
-const handleHeartDisplay = (hasLiked) => {
-    if (hasLiked) {
-      $('.active-heart').removeClass('hidden')
-    } else {
-      $('.inactive-heart').removeClass('hidden')
-    }
-}
+// const handleHeartDisplay = (hasLiked) => {
+//   if (hasLiked) {
+//     $('.active-heart').removeClass('hidden')
+//   } else {
+//     $('.inactive-heart').removeClass('hidden')
+//   }
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // const dataset = $('#timeline-show').data()
-    // const timelineId = dataset.timelineId
-
-    // ここで全ての記事を取得している
     $('.timeline-card').each(function(){
-      console.log($('.timeline-card'));
-        // ここで取れるのはなぜかid8だけ
-        // ここから全てのidを取れるようしたいがわからない
-        // const dataset = $('#timeline-show').data()
-        // const timelineId = dataset.timelineId
-        // attrを使ってtimeline-cardのdata-timeline-idを取得してみる
-            const timelineId = $('#timeline-show').attr('data-timeline-id')
-            console.log(timelineId);
-      
-            axios.get(`/timelines/${timelineId}/like`)
-            .then((response) => {
-              const hasLiked = response.data.hasLiked
-              handleHeartDisplay(hasLiked)
-            })
-            // debugger
-    });
-   
+      console.log($(this).data('timeline-id'));
+        const timelineId = $(this).data('timeline-id');
+        console.log(timelineId);
 
-    // axios.get(`/timelines/${timelineId}/like`)
-    //   .then((response) => {
-    //     const hasLiked = response.data.hasLiked
-    //     handleHeartDisplay(hasLiked)
-    //   })
+        const handleHeartDisplay = (hasLiked) => {
+          if (hasLiked) {
+            $(`#${timelineId}.active-heart`).removeClass('hidden')
+          } else {
+            $(`#${timelineId}.inactive-heart`).removeClass('hidden')
+          }
+        }
+
+        axios.get(`/timelines/${timelineId}/like`)
+        .then((response) => {
+          const hasLiked = response.data.hasLiked
+          handleHeartDisplay(hasLiked)
+        })
+    });
 
       $('.inactive-heart').on('click', (e) => {
         e.preventDefault();
@@ -78,10 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(timelineId);
          axios.post(`/timelines/${timelineId}/like`)
            .then((response) => {
-               if (response.data.status === 'ok') {
-                   $(`#${timelineId}.active-heart`).removeClass('hidden')
-                   $(`#${timelineId}.inactive-heart`).addClass('hidden')
-               }
+              if (response.data.status === 'ok') {
+                $(`#${timelineId}.active-heart`).removeClass('hidden')
+                $(`#${timelineId}.inactive-heart`).addClass('hidden')
+              }
            })
            .catch((e) => {
                window.alert('error')
@@ -96,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
          axios.delete(`/timelines/${timelineId}/like`)
           .then((response) => {
             if (response.data.status === 'ok') {
-                $(`#${timelineId}.active-heart`).addClass('hidden')
-                $(`#${timelineId}.inactive-heart`).removeClass('hidden')
+              $(`#${timelineId}.active-heart`).addClass('hidden')
+              $(`#${timelineId}.inactive-heart`).removeClass('hidden')
             }    
           })
           .catch((e) => {
