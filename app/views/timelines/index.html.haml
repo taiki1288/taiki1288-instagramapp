@@ -4,31 +4,35 @@
       = link_to new_timeline_path do
         = image_tag 'camera.svg', class: 'timeline-new'
   - @timelines.each do |timeline|
-    .timeline-header-list
-      .timeline-user 
-        = link_to profile_path do
-          = image_tag current_user.avatar_image, class: 'timelines-avatar'        
-      %p.timelineUser-name= current_user.account
-      %p.timelineTime= time_ago_in_words(timeline.created_at) + ' ago '
-    .timeline-card 
-      .timeline-images
-        - if timeline.images.attached?
-          .slick
-            - timeline.images.each do |image|
-              = image_tag image, class: 'timeline-image'
-      .timeline-buttons 
-        .timeline-heart 
-          = image_tag 'heart.svg', class: 'like-btn'
-        .timeline-comment 
-          = image_tag 'comment.svg', class: 'comment-btn'
-        .timeline-share
-          = link_to  "https://twitter.com/share?url=#{ request.url }", title: 'Twitter', target: '_blank' do
-            = image_tag 'share.svg', class: 'share-btn'
-      .timeline-content 
-        %p.content-item= timeline.content
-      .timeline-create-time
-        %p.create-user= current_user.account
-        %p.create-time= timeline.created_at.strftime('%Y/%m/%d %H:%M')
+    .timeline-card#timeline-show{data: {timeline_id: timeline.id}}
+      .timeline-header-list
+        .timeline-user 
+          = link_to profile_path do
+            = image_tag current_user.avatar_image, class: 'timelines-avatar'        
+        %p.timelineUser-name= current_user.account
+        %p.timelineTime= time_ago_in_words(timeline.created_at) + ' ago '
+      .timeline-card-image
+        .timeline-images
+          - if timeline.images.attached?
+            .slick
+              - timeline.images.each do |image|
+                = image_tag image, class: 'timeline-image'
+        .timeline-buttons 
+          - if user_signed_in?
+            .timeline-heart.hidden.active-heart{id: timeline.id}
+              = image_tag 'heart.svg', class: 'like-btn'
+            .timeline-heart.hidden.inactive-heart{id: timeline.id}
+              = image_tag 'inactive-heart.svg', class: 'like-btn'
+          .timeline-comment 
+            = image_tag 'comment.svg', class: 'comment-btn'
+          .timeline-share
+            = link_to  "https://twitter.com/share?url=#{ request.url }", title: 'Twitter', target: '_blank' do
+              = image_tag 'share.svg', class: 'share-btn'
+        .timeline-content 
+          %p.content-item= timeline.content
+        .timeline-create-time
+          %p.create-user= current_user.account
+          %p.create-time= timeline.created_at.strftime('%Y/%m/%d %H:%M')
           
         
 
