@@ -43,9 +43,7 @@ $(function() {
 document.addEventListener('DOMContentLoaded', () => {
     $('.timeline-card').each(function(){
       console.log($(this).data('timeline-id'));
-        const timelineId = $(this).data('timeline-id');
-        console.log(timelineId);
-
+      const timelineId = $(this).data('timeline-id');
         const handleHeartDisplay = (hasLiked) => {
           if (hasLiked) {
             $(`#${timelineId}.active-heart`).removeClass('hidden')
@@ -59,7 +57,40 @@ document.addEventListener('DOMContentLoaded', () => {
           const hasLiked = response.data.hasLiked
           handleHeartDisplay(hasLiked)
         })
+
+        axios.get(`/timelines/${timelineId}/comments`)
+          .then((response) => {
+            // debugger
+            const comments = response.data
+            comments.forEach((comment) => {
+              $('.comments-container').append(
+                `<div class='comment-card'>
+                  <div class='comment-user-image'>
+                          
+                  </div>
+                </div>
+                <div class="timeline_comment"><p>${comment.content}</p></div>`
+              )
+            })
+          })
+          // debugger
     });
+
+    // axios.get(`/api/timelines/${timelineId}/comments`)
+    // .then((response) => {
+    //   // debugger
+    //   const comments = response.data
+    //   comments.forEach((comment) => {
+    //     $('.comments-container').append(
+    //       `<div class='comment-card'>
+    //         <div class='comment-user-image'>
+              
+    //         </div>
+    //        </div>
+    //        <div class="timeline_comment"><p>${comment.content}</p</div>`
+    //     )
+    //   })
+    // })
 
       $('.inactive-heart').on('click', (e) => {
         e.preventDefault();

@@ -24,7 +24,8 @@
             .timeline-heart.hidden.inactive-heart{id: timeline.id}
               = image_tag 'inactive-heart.svg', class: 'like-btn'
           .timeline-comment 
-            = image_tag 'comment.svg', class: 'comment-btn'
+            = link_to timeline_comments_path(timeline.id) do
+              = image_tag 'comment.svg', class: 'comment-btn'
           .timeline-share
             = link_to  "https://twitter.com/share?url=#{ request.url }", title: 'Twitter', target: '_blank' do
               = image_tag 'share.svg', class: 'share-btn'

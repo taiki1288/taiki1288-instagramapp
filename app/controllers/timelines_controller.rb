@@ -5,6 +5,9 @@ class TimelinesController < ApplicationController
         @timelines = Timeline.all
     end
 
+    def show
+    end
+
     def new
         @timeline = current_user.timelines.build
     end
