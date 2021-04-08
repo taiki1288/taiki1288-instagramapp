@@ -52,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        axios.get(`/timelines/${timelineId}/like`)
+        axios.get(`/api/timelines/${timelineId}/like`)
         .then((response) => {
           const hasLiked = response.data.hasLiked
           handleHeartDisplay(hasLiked)
         })
 
-        axios.get(`/timelines/${timelineId}/comments`)
+        axios.get(`/api/timelines/${timelineId}/comments`)
           .then((response) => {
             // debugger
             const comments = response.data
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
               )
             })
           })
-          // debugger
+          debugger
     });
 
     // axios.get(`/api/timelines/${timelineId}/comments`)
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const timelineId = $(e.currentTarget).attr('id');
         console.log(timelineId);
-         axios.post(`/timelines/${timelineId}/like`)
+         axios.post(`/api/timelines/${timelineId}/like`)
            .then((response) => {
               if (response.data.status === 'ok') {
                 $(`#${timelineId}.active-heart`).removeClass('hidden')
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const timelineId = $(e.currentTarget).attr('id');
         console.log(timelineId);
-         axios.delete(`/timelines/${timelineId}/like`)
+         axios.delete(`/api/timelines/${timelineId}/like`)
           .then((response) => {
             if (response.data.status === 'ok') {
               $(`#${timelineId}.active-heart`).addClass('hidden')

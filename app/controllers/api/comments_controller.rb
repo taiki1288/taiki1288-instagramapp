@@ -1,7 +1,8 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < Api::ApplicationController
     def index
         timeline = Timeline.find(params[:timeline_id])
         comments = timeline.comments
+        render json: comments
     end
 
     def create
