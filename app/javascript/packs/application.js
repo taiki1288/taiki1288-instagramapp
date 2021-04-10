@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         axios.get(`/api/timelines/${timelineId}/comments`)
           .then((response) => {
-            // debugger
             const comments = response.data
             comments.forEach((comment) => {
               $('.comments-container').append(
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
               )
             })
           })
-          debugger
+          // debugger
     });
 
     // axios.get(`/api/timelines/${timelineId}/comments`)
@@ -91,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //     )
     //   })
     // })
-
       $('.inactive-heart').on('click', (e) => {
         e.preventDefault();
         const timelineId = $(e.currentTarget).attr('id');
