@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineId = $('.comments-container').attr('id')
     axios.get(`/api/timelines/${timelineId}/comments`)
     .then((response) => {
-      debugger
+      // debugger
       const comments = response.data
       comments.forEach((comment) => {
         $('.comments-container').append(
@@ -86,37 +86,55 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
 
-      $('.inactive-heart').on('click', (e) => {
-        e.preventDefault();
-        const timelineId = $(e.currentTarget).attr('id');
-        console.log(timelineId);
-         axios.post(`/api/timelines/${timelineId}/like`)
-           .then((response) => {
-              if (response.data.status === 'ok') {
-                $(`#${timelineId}.active-heart`).removeClass('hidden')
-                $(`#${timelineId}.inactive-heart`).addClass('hidden')
-              }
-           })
-           .catch((e) => {
-               window.alert('error')
-               console.log(e)
-           })
-      })
+    $('.create-comment-btn').on('click', () => {
+      const content = $('#comment_content').val()
+      if (!content) {
+        window.alert('コメントを入力してください')
+      } else {
+        axios.post(`/api/timelines/${timelineId}/comments`, {
+          comment: {content: content}
+        })
+          .then((res) => {
+            debugger
+            const comment = res.data
+            $('.comments-container').append(
+              `<div class="timeline_comment"><p>${comment.content}</p</div>`
+            )
+          })
+      }
+    })
 
-      $('.active-heart').on('click', (e) => {
-        e.preventDefault();
-        const timelineId = $(e.currentTarget).attr('id');
-        console.log(timelineId);
-         axios.delete(`/api/timelines/${timelineId}/like`)
+    $('.inactive-heart').on('click', (e) => {
+      e.preventDefault();
+      const timelineId = $(e.currentTarget).attr('id');
+      console.log(timelineId);
+        axios.post(`/api/timelines/${timelineId}/like`)
           .then((response) => {
             if (response.data.status === 'ok') {
-              $(`#${timelineId}.active-heart`).addClass('hidden')
-              $(`#${timelineId}.inactive-heart`).removeClass('hidden')
-            }    
+              $(`#${timelineId}.active-heart`).removeClass('hidden')
+              $(`#${timelineId}.inactive-heart`).addClass('hidden')
+            }
           })
           .catch((e) => {
               window.alert('error')
               console.log(e)
           })
-     })
+    })
+
+    $('.active-heart').on('click', (e) => {
+      e.preventDefault();
+      const timelineId = $(e.currentTarget).attr('id');
+      console.log(timelineId);
+        axios.delete(`/api/timelines/${timelineId}/like`)
+        .then((response) => {
+          if (response.data.status === 'ok') {
+            $(`#${timelineId}.active-heart`).addClass('hidden')
+            $(`#${timelineId}.inactive-heart`).removeClass('hidden')
+          }    
+        })
+        .catch((e) => {
+            window.alert('error')
+            console.log(e)
+        })
+    })
 })

@@ -33,3 +33,23 @@
         
     }
 }
+
+.timeline_comment {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #9B9B9B;
+}
+
+.comment-create {
+    position: relative;
+}
+
+.create-comment-btn {
+    position: absolute;
+    width: 30px;
+    right: 10px;
+    bottom: -35px;
+}

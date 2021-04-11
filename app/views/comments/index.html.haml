@@ -9,5 +9,6 @@
     .comments-container{id: @timeline.id}
 
     .comment-create
-      .comment-text-area 
-        = text_area_tag :comment_content, '', class: 'sm'
+      = image_tag 'comment.svg', class: 'create-comment-btn'
+    .comment-text-area 
+      = text_area_tag :comment_content, '', class: 'sm'
