@@ -60,36 +60,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         axios.get(`/api/timelines/${timelineId}/comments`)
           .then((response) => {
+            // debugger
             const comments = response.data
             comments.forEach((comment) => {
               $('.comments-container').append(
                 `<div class='comment-card'>
                   <div class='comment-user-image'>
-                          
                   </div>
                 </div>
                 <div class="timeline_comment"><p>${comment.content}</p></div>`
               )
             })
           })
-          // debugger
     });
 
-    // axios.get(`/api/timelines/${timelineId}/comments`)
-    // .then((response) => {
-    //   // debugger
-    //   const comments = response.data
-    //   comments.forEach((comment) => {
-    //     $('.comments-container').append(
-    //       `<div class='comment-card'>
-    //         <div class='comment-user-image'>
-              
-    //         </div>
-    //        </div>
-    //        <div class="timeline_comment"><p>${comment.content}</p</div>`
-    //     )
-    //   })
-    // })
+    const timelineId = $('.comments-container').attr('id')
+    axios.get(`/api/timelines/${timelineId}/comments`)
+    .then((response) => {
+      debugger
+      const comments = response.data
+      comments.forEach((comment) => {
+        $('.comments-container').append(
+          `<div class="timeline_comment"><p>${comment.content}</p</div>`
+        )
+      })
+    })
+
       $('.inactive-heart').on('click', (e) => {
         e.preventDefault();
         const timelineId = $(e.currentTarget).attr('id');

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     def index
-        timeline = Timeline.find(params[:timeline_id])
-        comments = timeline.comments
+        @timeline = Timeline.find(params[:timeline_id])
+        comments = @timeline.comments
     end
 
     def create
