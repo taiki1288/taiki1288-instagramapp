@@ -58,30 +58,39 @@ document.addEventListener('DOMContentLoaded', () => {
           handleHeartDisplay(hasLiked)
         })
 
-        axios.get(`/api/timelines/${timelineId}/comments`)
-          .then((response) => {
-            // debugger
-            const comments = response.data
-            comments.forEach((comment) => {
-              $('.comments-container').append(
-                `<div class='comment-card'>
-                  <div class='comment-user-image'>
-                  </div>
-                </div>
-                <div class="timeline_comment"><p>${comment.content}</p></div>`
-              )
-            })
-          })
+        // axios.get(`/api/timelines/${timelineId}/comments`)
+        //   .then((response) => {
+        //     // debugger
+        //     const comments = response.data
+        //     comments.forEach((comment) => {
+        //       $('.comments-container').append(
+        //         `<div class='comment-card'>
+        //           <div class='comment-user-image'>
+        //             <img src=${comment.avatar_image}>
+        //           </div>
+        //         </div>
+        //         <div class="timeline_comment"><p>${comment.content}</p></div>`
+        //       )
+        //     })
+        //   })
     });
 
     const timelineId = $('.comments-container').attr('id')
     axios.get(`/api/timelines/${timelineId}/comments`)
     .then((response) => {
-      // debugger
+      debugger
       const comments = response.data
       comments.forEach((comment) => {
         $('.comments-container').append(
-          `<div class="timeline_comment"><p>${comment.content}</p</div>`
+          `<div class='comment-card'>
+            <div class='comment-user-image'>
+            <img src="${comment.user.avatar_comment_image}">
+            </div>
+            <div class="comment-user-name">
+              <p>${comment.user.account}</p>
+            </div>
+            <div class="timeline_comment"><p>${comment.content}</p></div>
+          </div>`        
         )
       })
     })
@@ -95,10 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
           comment: {content: content}
         })
           .then((res) => {
-            debugger
+            // debugger
             const comment = res.data
             $('.comments-container').append(
-              `<div class="timeline_comment"><p>${comment.content}</p</div>`
+            `<div class='comment-card'>
+              <div class='comment-user-image'>
+                <img src="${comment.user.avatar_comment_image}">
+              </div>
+              <div class="comment-user-name">
+                <p>${comment.user.account}</p>
+              </div>
+              <div class="timeline_comment"><p>${comment.content}</p></div>
+            </div>`      
             )
           })
       }

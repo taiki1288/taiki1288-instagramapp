@@ -2,14 +2,14 @@ class Api::CommentsController < Api::ApplicationController
     def index
         timeline = Timeline.find(params[:timeline_id])
         comments = timeline.comments
-        render json: comments
+        render json: comments, include: { user: [:profile] }
     end
 
     def create
         timeline = Timeline.find(params[:timeline_id])
         @comment = timeline.comments.build(comment_params)
         @comment.save!
-        render json: @comment
+        render json: @comment, include: { user: [:profile] }
     end
 
     private
