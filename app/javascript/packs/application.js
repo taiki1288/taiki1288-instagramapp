@@ -40,6 +40,24 @@ $(function() {
 //   }
 // }
 
+const appendNewComment = (comment) => {
+  $('.comments-container').append(
+    `<div class='comment-card'>
+      <div class='comment-user-image'>
+        <img src="${comment.user.comment_avatar_image}">
+      </div>
+      <div class="user-status">
+        <div class="comment-user-name">
+          <p>${comment.user.account}</p>
+        </div>
+        <div class="timeline_comment">
+          <p>${comment.content}</p>
+        </div>
+      </div>
+     </div>`      
+  )
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     $('.timeline-card').each(function(){
       console.log($(this).data('timeline-id'));
@@ -57,45 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const hasLiked = response.data.hasLiked
           handleHeartDisplay(hasLiked)
         })
-
-        // axios.get(`/api/timelines/${timelineId}/comments`)
-        //   .then((response) => {
-        //     // debugger
-        //     const comments = response.data
-        //     comments.forEach((comment) => {
-        //       $('.comments-container').append(
-        //         `<div class='comment-card'>
-        //           <div class='comment-user-image'>
-        //             <img src=${comment.avatar_image}>
-        //           </div>
-        //         </div>
-        //         <div class="timeline_comment"><p>${comment.content}</p></div>`
-        //       )
-        //     })
-        //   })
     });
 
     const timelineId = $('.comments-container').attr('id')
     axios.get(`/api/timelines/${timelineId}/comments`)
     .then((response) => {
-      // debugger
       const comments = response.data
       comments.forEach((comment) => {
-        $('.comments-container').append(
-          `<div class='comment-card'>
-            <div class='comment-user-image'>
-              <img src="${comment.user.comment_avatar_image}">
-            </div>
-            <div class="user-status">
-              <div class="comment-user-name">
-                <p>${comment.user.account}</p>
-              </div>
-              <div class="timeline_comment">
-                <p>${comment.content}</p>
-              </div>
-            </div>
-           </div>`      
-        )
+        appendNewComment(comment)
       })
     })
 
@@ -109,21 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
           .then((res) => {
             const comment = res.data
-            $('.comments-container').append(
-            `<div class='comment-card'>
-              <div class='comment-user-image'>
-                <img src="${comment.user.comment_avatar_image}">
-              </div>
-              <div class="user-status">
-                <div class="comment-user-name">
-                  <p>${comment.user.account}</p>
-                </div>
-                <div class="timeline_comment">
-                  <p>${comment.content}</p>
-                </div>
-              </div>
-             </div>`      
-            )
+            appendNewComment(comment)
             $('#comment_content').val('')
           })
       }
