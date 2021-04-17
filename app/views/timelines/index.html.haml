@@ -23,7 +23,7 @@
               = image_tag 'heart.svg', class: 'like-btn'
             .timeline-heart.hidden.inactive-heart{id: timeline.id}
               = image_tag 'inactive-heart.svg', class: 'like-btn'
-          .timeline-comment 
+          .timeline-comment
             = link_to timeline_comments_path(timeline.id) do
               = image_tag 'comment.svg', class: 'comment-btn'
           .timeline-share
