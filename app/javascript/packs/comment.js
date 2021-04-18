@@ -20,7 +20,7 @@ const appendNewComment = (comment) => {
             <p>${comment.content}</p>
           </div>
         </div>
-       </div>`      
+       </div>`    
     )
 }
 

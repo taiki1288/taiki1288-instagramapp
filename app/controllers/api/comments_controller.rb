@@ -12,6 +12,13 @@ class Api::CommentsController < Api::ApplicationController
         render json: @comment, include: { user: [:profile] }
     end
 
+    def destroy
+        timeline = Timeline.find(params[:timeline_id])
+        @comment = current_user.timeline.comments.find(params[:id])
+        @comment.destroy!
+        # render json: @comment, include: { user: [:profile] }
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:content).merge(user_id: current_user.id)

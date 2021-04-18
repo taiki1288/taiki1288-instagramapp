@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
         @comment.save!
     end
 
+    def destroy
+        timeline = Timeline.find(params[:timeline_id])
+        comment = current_user.timeline.comments.find(params[:id])
+        comment.destroy!
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:content)
