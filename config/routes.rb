@@ -4,8 +4,15 @@ Rails.application.routes.draw do
   root to: 'timelines#index'
 
   resources :timelines do
-    resource :like, only: [:show, :create, :destroy]
+    resources :comments, only: [:index, :create, :destroy]
   end
 
   resource :profile, only: [:show, :edit, :update]
+  
+  namespace :api, defaults: {format: :json} do
+    scope '/timelines/:timeline_id' do
+      resource :like, only: [:show, :create, :destroy]
+      resources :comments, only: [:index, :create, :destroy]
+    end
+  end
 end

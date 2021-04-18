@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :timelines, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def has_liked?(timeline)
     likes.exists?(timeline_id: timeline.id)

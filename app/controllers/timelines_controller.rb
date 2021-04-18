@@ -5,6 +5,10 @@ class TimelinesController < ApplicationController
         @timelines = Timeline.all
     end
 
+    def show
+        @timeline = Timeline.find(params[:id])
+    end
+
     def new
         @timeline = current_user.timelines.build
     end
