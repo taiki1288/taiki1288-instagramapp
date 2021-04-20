@@ -6,20 +6,19 @@
     -# .timeline-logout-btn
     -#   = link_to 'ログアウト', destroy_user_session_path, method: :delete
   - @timelines.each do |timeline|
-    = link_to timeline_path(timeline) do
-      .timeline-card#timeline-show{data: {timeline_id: timeline.id}}
-        .timeline-header-list
-          .timeline-user
-            = link_to account_path(timeline.user) do
-              = image_tag timeline.user.avatar_image, class: 'timelines-avatar'        
-          %p.timelineUser-name= timeline.user.account
-          %p.timelineTime= time_ago_in_words(timeline.created_at) + ' ago '
-        .timeline-card-image
-          .timeline-images
-            - if timeline.images.attached?
-              .slick
-                - timeline.images.each do |image|
-                  = image_tag image, class: 'timeline-image'
+    .timeline-card#timeline-show{data: {timeline_id: timeline.id}}
+      .timeline-header-list
+        .timeline-user 
+          = link_to account_path(timeline.user) do
+            = image_tag timeline.user.avatar_image, class: 'timelines-avatar'        
+        %p.timelineUser-name= timeline.user.account
+        %p.timelineTime= time_ago_in_words(timeline.created_at) + ' ago '
+      .timeline-card-image
+        .timeline-images
+          - if timeline.images.attached?
+            .slick
+              - timeline.images.each do |image|
+                = image_tag image, class: 'timeline-image'
         .timeline-buttons 
           - if user_signed_in?
             .timeline-heart.hidden.active-heart{id: timeline.id}
@@ -37,8 +36,6 @@
         .timeline-create-time
           %p.create-user= timeline.user.account
           %p.create-time= timeline.created_at.strftime('%Y/%m/%d %H:%M')
-          
-        
 
         
       
