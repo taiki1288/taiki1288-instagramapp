@@ -9,7 +9,7 @@
     #profile-content
       .profilePage_user_image_box
         .profilePage_user_image_box_item
-          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form') do |f|
+          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
             %div 
               = f.label :avatar, 'image', class: 'form-title'
             %div 
