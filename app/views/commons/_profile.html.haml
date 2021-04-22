@@ -1,9 +1,14 @@
-.container 
+.container#account-show
   .profilePage
     = link_to root_path do
       = image_tag 'return.svg', class: 'return-btn'
     .profilePage_user_account
       %p= user.account
+    .profilePage_follow_btn
+      .follow-btn
+        %p Follow
+      .unfollow-btn
+        %p Unfollow
     .profilePage_user_image 
       = image_tag user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
     #profile-content
@@ -33,3 +38,5 @@
     = render 'commons/timeline', timeline: timeline
 
 = javascript_pack_tag 'profile'
+
+= javascript_pack_tag 'followrelation'
