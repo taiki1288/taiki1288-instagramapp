@@ -20,13 +20,13 @@
 
     .profilePage_user_have 
       .profilePage_user_have_item 
-        %p.count 44
+        %p.count= user.timelines.count
         %p.title posts
       .profilePage_user_have_item 
-        %p.count 110
+        %p.count= user.followers.count
         %p.title Followers 
       .profilePage_user_have_item 
-        %p.count 44
+        %p.count= user.followings.count
         %p.title Folllowing
     
   - user.timelines.each do |timeline|
