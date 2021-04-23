@@ -1,0 +1,30 @@
+.followrelation-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.follow-user-name {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+}
+
+.follow-list {
+    display: flex;
+}
+
+.follow-user-account  {
+   margin-left: 20px; 
+   margin-top: -5px;
+}
+
+.hr {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    border: 1px solid #EEEEEE;
+}
