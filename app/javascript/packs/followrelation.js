@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.get(`/accounts/${accountId}/follows/${followId}`)
       .then((response) => {
-        // debugger
         const hasFollowed = response.data.hasFollowed
         followDisplay(hasFollowed)
     })
