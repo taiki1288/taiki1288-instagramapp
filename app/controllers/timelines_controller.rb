@@ -3,6 +3,8 @@ class TimelinesController < ApplicationController
 
     def index
         @timelines = Timeline.all
+        # user_ids = current_user.followings.pluck(:id)
+        # @timelines = Timeline.where(user_id: user_ids)
     end
 
     def show
