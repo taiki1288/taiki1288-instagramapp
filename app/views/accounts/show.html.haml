@@ -32,11 +32,11 @@
         %p.count= @user.timelines.count
         %p.title posts
       .profilePage_user_have_item 
-        %p.count= @user.followers.count
+        %p.count#follower_count= @user.followings.count
         = link_to account_followers_path(@user.id) do
           %p.title Followers 
       .profilePage_user_have_item 
-        %p.count= @user.followings.count
+        %p.count#following_count= @user.followings.count
         = link_to account_followings_path(@user.id) do
           %p.title Folllowing
     
