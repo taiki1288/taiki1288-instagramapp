@@ -1,0 +1,8 @@
+.container 
+  .following-container  
+    .following-header 
+      = link_to account_path(@user) do
+        = image_tag 'return.svg', class: 'comment-return-btn'
+    %p.comment-title Followings 
+
+  = render 'commons/follow', follows: @followings

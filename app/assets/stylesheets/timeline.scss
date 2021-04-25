@@ -37,7 +37,7 @@
         line-height: 24px;
         border: none;
         background: none;
-        color: #BDBDBD;
+        color: #2F80ED;
         cursor: pointer;
     }
 }
@@ -66,7 +66,7 @@
 .timeline-container {
     margin-top: 48px;
     margin-left: 16px;
-    margin-left: 16px;
+    margin-right: 16px;
 }
 
 .timeline-header {
@@ -119,10 +119,6 @@
     font-size: 12px;
     line-height: 18px;
     color: #9E9E9E;
-}
-
-.timeline-card  {
-
 }
 
 .timeline-images {
@@ -202,4 +198,13 @@
 
 .slide-image { 
     width: 100%;
+}
+
+.timeline-logout-btn {
+    
+}
+
+.timeline-card-container {
+    margin-left: 16px;
+    margin-right: 16px;
 }

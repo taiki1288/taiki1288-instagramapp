@@ -1,0 +1,10 @@
+.follow-card
+  - follows.each do |follow|
+    .follow-card 
+      .follow-list 
+        .follow-user
+          = link_to account_path(follow.id) do
+            = image_tag follow.avatar_image, class: 'followrelation-avatar'
+        .follow-user-account 
+          %p.follow-user-name= follow.account
+    .hr

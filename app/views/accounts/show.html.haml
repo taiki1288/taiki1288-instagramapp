@@ -1,0 +1,49 @@
+.container#account-show{data: {account_id: @user.id, following_id: current_user.id}}
+  .profilePage
+    = link_to root_path do
+      = image_tag 'return.svg', class: 'return-btn'
+    .profilePage_user_account
+      %p= @user.account
+    - if @user != current_user
+      .profilePage_follow_btn
+        .follow-btn.hidden
+          %p Follow
+        .unfollow-btn.hidden
+          %p Unfollow
+
+    .profilePage_user_image 
+      = image_tag @user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
+    
+    - if @user == current_user
+      #profile-content
+        .profilePage_user_image_box
+          .profilePage_user_image_box_item
+            = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
+              %div 
+                = f.label :avatar, 'image', class: 'form-title'
+              %div 
+                = f.file_field :avatar, class: 'form-avatar'
+            
+              =f.submit 'Submit', class: 'modal-btn-primary'
+            %button#profile-content-close Cancel
+    
+    .profilePage_user_have 
+      .profilePage_user_have_item 
+        %p.count= @user.timelines.count
+        %p.title posts
+      .profilePage_user_have_item 
+        %p.count#follower_count= @user.followings.count
+        = link_to account_followers_path(@user.id) do
+          %p.title Followers 
+      .profilePage_user_have_item 
+        %p.count#following_count= @user.followings.count
+        = link_to account_followings_path(@user.id) do
+          %p.title Folllowing
+    
+  - @user.timelines.each do |timeline|
+    = render 'commons/timeline', timeline: timeline
+
+= javascript_pack_tag 'profile'
+
+= javascript_pack_tag 'followrelation'
+-# = render 'commons/profile', user: @user

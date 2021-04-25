@@ -58,6 +58,7 @@
             text-align: center;
             margin-top: 0;
             margin-bottom: 0;
+            cursor: pointer;
           }
         }
     }
@@ -129,3 +130,45 @@
     margin-top: 20px;
   }
 
+  .profilePage_follow_btn {
+    width: 50px;
+    float: right;
+    text-align: right;
+    margin-right: 16px;
+  }
+
+  .follow-btn {
+    p {
+      height: 24px;
+      left: 81.33%;
+      right: 5.07%;
+      top: calc(50% - 24px/2 - 347px);
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: right;
+      color: #2F80ED;
+      margin-top: -59px;
+      cursor: pointer;
+    }
+  }
+
+  .unfollow-btn {
+    p {
+      height: 24px;
+      left: 81.33%;
+      right: 5.07%;
+      top: calc(50% - 24px/2 - 347px);
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: right;
+      color: #2F80ED;
+      margin-top: -59px;
+      cursor: pointer;
+    }
+  }
