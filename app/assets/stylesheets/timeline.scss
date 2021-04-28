@@ -158,6 +158,7 @@
         .like-btn {
             width: 25px;
             height: 25px;
+            cursor: pointer;
         }
     }
 
@@ -195,6 +196,7 @@
 .timeline-create-time {
     display: flex;
     margin-top: -5px;
+    margin-bottom: 28px;
 
     .create-user {
         font-family: Poppins;
