@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
   
   namespace :api, defaults: {format: :json} do
+    resource :profile, only: [:show, :edit, :update]
     scope '/timelines/:timeline_id' do
       resource :like, only: [:show, :create, :destroy]
       resources :comments, only: [:index, :create, :destroy]

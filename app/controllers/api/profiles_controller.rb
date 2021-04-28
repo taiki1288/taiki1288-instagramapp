@@ -1,7 +1,9 @@
-class ProfilesController < ApplicationController
+class Api::ProfilesController < Api::ApplicationController
     before_action :authenticate_user!
+
     def show
       @profile = current_user.profile
+      render json: @profile
     end
 
     def edit
@@ -9,15 +11,10 @@ class ProfilesController < ApplicationController
     end
 
     def update
+    #   binding.pry
       @profile = current_user.prepare_profile
       @profile.assign_attributes(profile_params)
-      @profile.save!
-      # respond_to do |format|
-      #   if @profile.save!
-      #     format.html { redirect_to @profile }
-      #     format.json { render json: @profile }
-      #   end
-      # end
+      render json: @profile
     end
 
     private

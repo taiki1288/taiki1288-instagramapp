@@ -77,10 +77,29 @@
 
 .timeline-post-btn {
     margin-bottom: 43px;
+    display: flex;
 
     .timeline-new {
         width: 25px;
         height: 25px;
+    }
+}
+
+.profile-btn {
+    float: right;
+    margin-top: -72px;
+    color: #2F80ED;
+
+    a {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: right;
+      color: #2F80ED;
+      cursor: pointer;
+      color: inherit;
     }
 }
 
@@ -207,4 +226,23 @@
 .timeline-card-container {
     margin-left: 16px;
     margin-right: 16px;
+}
+
+.logout-btn {
+    float: right;
+    margin-top: -59px;
+    color: #2F80ED;
+   
+    a {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+        color: #2F80ED;
+        cursor: pointer;
+        color: inherit;
+        color: inherit;
+    }
 }

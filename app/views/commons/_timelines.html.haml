@@ -3,8 +3,8 @@
     .timeline-post-btn
       = link_to new_timeline_path do
         = image_tag 'camera.svg', class: 'timeline-new'
-    -# .timeline-logout-btn
-    -#   = link_to 'ログアウト', destroy_user_session_path, method: :delete
+    .profile-btn 
+      = link_to 'Profile', account_path(current_user)
   - @timelines.each do |timeline|
     = link_to timeline_path(timeline) do
       .timeline-card#timeline-show{data: {timeline_id: timeline.id}}
