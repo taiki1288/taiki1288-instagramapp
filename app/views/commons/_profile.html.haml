@@ -1,11 +1,13 @@
 .container#account-show
   .profilePage
-    = link_to root_path do
-      = image_tag 'return.svg', class: 'return-btn'
-    -# .profile-logout-btn 
-    -#   = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    .profilePage_user_account
-      %p= user.account
+    .profilePage_item 
+      .profilePage_return
+        = link_to root_path do
+          = image_tag 'return.svg', class: 'return-btn'
+      .profile-logout-btn 
+        = link_to 'Logout', destroy_user_session_path, method: :delete
+      .profilePage_user_account
+        %p= user.account
     .profilePage_user_image 
       -# = image_tag user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
       -# #profile-content
