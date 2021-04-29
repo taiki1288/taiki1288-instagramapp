@@ -2,7 +2,7 @@
   .profilePage
     .profilePage_item 
       .profilePage_return
-        = link_to root_path do
+        = link_to timelines_path do
           = image_tag 'return.svg', class: 'return-btn'
       .profile-logout-btn 
         = link_to 'Logout', destroy_user_session_path, method: :delete

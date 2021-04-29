@@ -12,16 +12,10 @@ class ProfilesController < ApplicationController
       @profile = current_user.prepare_profile
       @profile.assign_attributes(profile_params)
       @profile.save!
-      # respond_to do |format|
-      #   if @profile.save!
-      #     format.html { redirect_to @profile }
-      #     format.json { render json: @profile }
-      #   end
-      # end
     end
 
     private
     def profile_params
-      params.permit(:avatar)
+      params.require(:profile).permit(:avatar)
     end
 end
