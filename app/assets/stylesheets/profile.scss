@@ -3,7 +3,7 @@
 
     &_account {
         align-items: center;
-        margin-top: -46px;
+        margin-top: -40px;
 
         p {
             text-align: center;
@@ -34,6 +34,7 @@
         display: flex;
         justify-content: space-evenly;
         margin-left: 27px;
+        margin-bottom: 40px;
 
         &_item {
           .count {
@@ -169,6 +170,22 @@
       text-align: right;
       color: #2F80ED;
       margin-top: -59px;
+      cursor: pointer;
+    }
+  }
+
+  .profile-logout-btn {
+    text-align: right;
+    margin-top: -24px;
+
+    a {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: right;
+      color: #2F80ED;
       cursor: pointer;
     }
   }

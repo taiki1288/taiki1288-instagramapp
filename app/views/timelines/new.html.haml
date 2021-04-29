@@ -1,7 +1,7 @@
 .card_container 
   = form_with model: @timeline, url: timelines_path, method: 'post', local: true do |f|
     .timeline_new_header
-      = link_to 'Cancel', root_path, class: 'post-cancel'
+      = link_to 'Cancel', timelines_path, class: 'post-cancel'
       %p.timeline_new_header_name Status
       .timeline_new_header_postbtn
         =f.submit 'Post', class: 'post-btn'

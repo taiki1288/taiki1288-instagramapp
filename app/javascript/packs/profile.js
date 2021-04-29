@@ -1,6 +1,8 @@
-import $ from 'jquery'
-import axios from 'axios'
-// require("turbolinks").start()
+const { default: axios } = require("axios");
+var jQuery = require('jquery')
+import { csrfToken } from 'rails-ujs'
+
+axios.defaults.headers.common[ 'X-CSRF-Token' ] = csrfToken()
 
 document.addEventListener('DOMContentLoaded', () => {
     $(function(){
@@ -13,5 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#profile-content-close').on('click', function(){
             $('#profile-content').fadeOut();
         });
+      });
+});
+
+window.addEventListener('load', () => {
+    const uploader = document.querySelector('.form-avatar');
+    $(uploader).on('change', (e) => {
+        const file = uploader.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            const image = reader.result;
+            document.querySelector('.avatar-image').setAttribute('src', image);
+        }
     });
 });

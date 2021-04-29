@@ -1,22 +1,26 @@
 .container#account-show
   .profilePage
-    = link_to root_path do
-      = image_tag 'return.svg', class: 'return-btn'
-    .profilePage_user_account
-      %p= user.account
+    .profilePage_item 
+      .profilePage_return
+        = link_to timelines_path do
+          = image_tag 'return.svg', class: 'return-btn'
+      .profile-logout-btn 
+        = link_to 'Logout', destroy_user_session_path, method: :delete
+      .profilePage_user_account
+        %p= user.account
     .profilePage_user_image 
       = image_tag user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
-    #profile-content
-      .profilePage_user_image_box
-        .profilePage_user_image_box_item
-          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
-            %div 
-              = f.label :avatar, 'image', class: 'form-title'
-            %div 
-              = f.file_field :avatar, class: 'form-avatar'
+      #profile-content
+        .profilePage_user_image_box
+          .profilePage_user_image_box_item
+            = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
+              %div 
+                = f.label :avatar, 'image', class: 'form-title'
+              %div 
+                = f.file_field :avatar, class: 'form-avatar'
           
-            =f.submit 'Submit', class: 'modal-btn-primary'
-          %button#profile-content-close Cancel
+              #profile_submit=f.submit 'Submit', class: 'modal-btn-primary'
+            %button#profile-content-close Cancel
 
     .profilePage_user_have 
       .profilePage_user_have_item 
@@ -24,10 +28,12 @@
         %p.title posts
       .profilePage_user_have_item 
         %p.count= user.followers.count
-        %p.title Followers 
+        = link_to account_followers_path(user.id) do
+          %p.title Followers
       .profilePage_user_have_item 
         %p.count= user.followings.count
-        %p.title Folllowing
+        = link_to account_followings_path(user.id) do
+          %p.title Folllowing
     
   - user.timelines.each do |timeline|
     = render 'commons/timeline', timeline: timeline

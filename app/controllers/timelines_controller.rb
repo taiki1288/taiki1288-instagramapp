@@ -2,9 +2,8 @@ class TimelinesController < ApplicationController
     before_action :authenticate_user!, only:[:new, :create, :edit, :destroy]
 
     def index
-        @timelines = Timeline.all
-        # user_ids = current_user.followings.pluck(:id)
-        # @timelines = Timeline.where(user_id: user_ids)
+        user_ids = current_user.followings.pluck(:id)
+        @timelines = Timeline.where(user_id: user_ids)
     end
 
     def show
