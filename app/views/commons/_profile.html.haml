@@ -9,18 +9,18 @@
       .profilePage_user_account
         %p= user.account
     .profilePage_user_image 
-      -# = image_tag user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
-      -# #profile-content
-      -#   .profilePage_user_image_box
-      -#     .profilePage_user_image_box_item
-      -#       = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
-      -#         %div 
-      -#           = f.label :avatar, 'image', class: 'form-title'
-      -#         %div 
-      -#           = f.file_field :avatar, class: 'form-avatar'
+      = image_tag user.avatar_image, class: 'avatar-image', id: 'profilePageImage'
+      #profile-content
+        .profilePage_user_image_box
+          .profilePage_user_image_box_item
+            = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
+              %div 
+                = f.label :avatar, 'image', class: 'form-title'
+              %div 
+                = f.file_field :avatar, class: 'form-avatar'
           
-      -#         #profile_submit=f.submit 'Submit', class: 'modal-btn-primary'
-      -#       %button#profile-content-close Cancel
+              #profile_submit=f.submit 'Submit', class: 'modal-btn-primary'
+            %button#profile-content-close Cancel
 
     .profilePage_user_have 
       .profilePage_user_have_item 
