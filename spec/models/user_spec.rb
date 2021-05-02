@@ -9,28 +9,31 @@ RSpec.describe User, type: :model do
   end
 
   context 'account名が入力されてない場合' do
-    let!(:user) { create(:user) }
+    let!(:user) { build(:user, account: nil)}
+    before do
+      user.save
+    end
     it 'ユーザー登録できない' do
-      user = FactoryBot.build(:user, account: nil)
-      user.valid?
       expect(user.errors.messages[:account][0]).to eq("can't be blank")
     end
   end
 
   context 'メールアドレスが入力されてない場合' do
-    let!(:user) { create(:user) }
+    let!(:user) { build(:user, email: nil) }
+    before do
+      user.save
+    end
     it 'ユーザー登録できない' do
-      user = FactoryBot.build(:user, email: nil)
-      user.valid?
       expect(user.errors.messages[:email][0]).to eq("can't be blank")
     end
   end
 
   context 'パスワードが入力されていない場合' do
-    let!(:user) { create(:user) }
+    let!(:user) { build(:user, password: nil) }
+    before do
+      user.save
+    end
     it 'ユーザー登録できない' do
-      user = FactoryBot.build(:user, password: nil)
-      user.valid?
       expect(user.errors.messages[:password][0]).to eq("can't be blank")
     end
   end
