@@ -17,6 +17,8 @@
 class Comment < ApplicationRecord
     belongs_to :timeline
     belongs_to :user
+    
+    validates :content, presence: true
 
     after_create :send_email
 
