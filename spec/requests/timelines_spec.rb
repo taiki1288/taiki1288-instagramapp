@@ -4,14 +4,6 @@ RSpec.describe 'Timelines', type: :request do
   let(:user) { create(:user) }
   let(:timelines) { create_list(:timeline, 5, user: user, followings: followings) }
 
-  # describe 'GET /timelines' do
-  #   it '200ステータスが返ってくる' do
-  #     get timelines_path
-  #     # binding.pry
-  #     expect(response).to have_http_status(200)
-  #   end
-  # end
-
   describe 'GET /timelines' do
     context 'ログインしている場合' do
       before do 
@@ -23,8 +15,6 @@ RSpec.describe 'Timelines', type: :request do
       end
     end
   end
-
-
 
   describe 'POST /timelines' do
     context 'ログインしている場合' do
@@ -47,4 +37,5 @@ RSpec.describe 'Timelines', type: :request do
       end
     end
   end
+
 end
