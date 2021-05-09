@@ -24,6 +24,6 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :account, :comment_avatar_image
 
   def comment_avatar_image
-    rails_blob_path(object.avatar_image) if object.avatar_image.attached?
+    Rails.application.routes.url_helpers.url_for(object.avatar_image)
   end
 end
