@@ -3,6 +3,7 @@ class Api::CommentsController < Api::ApplicationController
         timeline = Timeline.find(params[:timeline_id])
         comments = timeline.comments
         render json: comments, include: { user: [:profile] }
+        # binding.pry
     end
 
     def create

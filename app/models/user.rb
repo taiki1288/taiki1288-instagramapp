@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
   has_many :timelines, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
