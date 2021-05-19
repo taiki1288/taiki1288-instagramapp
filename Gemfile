@@ -31,6 +31,7 @@ gem 'hamlit'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'sidekiq'
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
