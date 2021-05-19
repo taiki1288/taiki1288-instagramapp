@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :timelines do
     resources :comments, only: [:index, :create, :destroy]
   end
+  
   resources :accounts, only: [:show] do
     resources :follows, only: [:show, :create]
     resources :unfollows, only: [:show, :create]

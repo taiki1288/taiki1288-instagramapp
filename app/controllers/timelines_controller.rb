@@ -1,5 +1,5 @@
 class TimelinesController < ApplicationController
-    before_action :authenticate_user!, only:[:new, :create, :edit, :destroy]
+    before_action :authenticate_user!
 
     def index
         user_ids = current_user.followings.pluck(:id)
