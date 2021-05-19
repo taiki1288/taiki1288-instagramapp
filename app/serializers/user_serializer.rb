@@ -24,12 +24,13 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :account, :comment_avatar_image
 
   has_one :profile
+  has_many :comments
 
   def comment_avatar_image
     if object.avatar_image != 'default-avatar.png'
       rails_blob_path(object.avatar_image)
     else
-      object.avatar_image
+      '/assets/default-avatar.png'
     end
   end
 

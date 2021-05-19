@@ -15,4 +15,5 @@ class ProfileSerializer < ActiveModel::Serializer
   attributes :id, :avatar
 
   belongs_to :user
+  has_many :comments
 end
