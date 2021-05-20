@@ -24,8 +24,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem 'active_model_serializers'
-gem 'better_errors'
-gem 'binding_of_caller'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
@@ -60,6 +58,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
   gem 'letter_opener_web', '~> 1.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
