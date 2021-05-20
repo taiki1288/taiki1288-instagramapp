@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: timelines
+#
+#  id         :bigint           not null, primary key
+#  content    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :bigint           not null
+#
+# Indexes
+#
+#  index_timelines_on_user_id  (user_id)
+#
 require 'rails_helper'
 
 RSpec.describe Timeline, type: :model do
