@@ -1,7 +1,6 @@
 Rails.application.configure do
   host = 'samplehost'
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  Rails.application.routes.default_url_options[:port] = 3000
+  Rails.application.routes.default_url_options[:host] = host
   
   # Settings specified here will take precedence over those in config/application.rb.
 
