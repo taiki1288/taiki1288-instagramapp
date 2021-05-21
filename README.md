@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーションの概要
 
-Things you may want to cover:
+https://instagram-app-taiki1288.herokuapp.com/users/sign_up
 
-* Ruby version
+instagramをイメージした画像投稿ができるアプリです
 
-* System dependencies
+私自身instagramをよく利用おり、プログラミング学習を始めた時からこのようなSNS関連のアプリを作ってみたいと思っていたので作成致しました。
 
-* Configuration
+## 使用技術
 
-* Database creation
+* Ruby 2.6.5
 
-* Database initialization
+* Ruby on Rails 6.1.3.2
 
-* How to run the test suite
+* postgresql 13.2
 
-* Services (job queues, cache servers, search engines, etc.)
+* javascript
 
-* Deployment instructions
+* jQuery
 
-* ...
+* Rspec
+
+## 機能一覧
+
+* ユーザー登録(devise)
+
+* ログイン機能(devise)
+
+* 投稿機能
+  * 画像投稿(Active storage)
+
+* いいね機能(Ajax)
+
+* コメント機能(Ajax)
+
+* フォロー機能(Ajax) 
+
+* 画像スライド機能(slick)
+
+* タイムライン機能
+
+* テスト(RSpec) 
+
+## テスト
+
+* RSpec
+
+  * model spec
+  
+  * request spec
